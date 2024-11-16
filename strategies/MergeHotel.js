@@ -36,9 +36,13 @@ class MergeHotel{
     existing[key] = { ...existing[key], ...newObject }; 
   }
   handlePrimitiveMerge(existing, key, value) {
-    if (existing[key] == null) {
+    if(key == 'description'){
+      existing[key] = existing[key].concat(value)
+    }
+    if (existing[key] == null || (typeof existing[key] === 'string' && existing[key].length < value.length)) {
       existing[key] = value;
     }
+    
   }
 }
 module.exports = MergeHotel
