@@ -39,7 +39,7 @@ class MergeHotel{
     if(key == 'description'){
       existing[key] = existing[key].concat(value)
     }
-    if (existing[key] == null) {
+    if (existing[key] == null || (typeof existing[key] === 'string' && existing[key].length < value?.length)) {
       existing[key] = value;
     }
     
