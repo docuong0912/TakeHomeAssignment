@@ -10,6 +10,7 @@ class AcmeAdapter{
           City,
           Country,
           DestinationId,
+          Address,
           ...rest
         } = hotel
         const restLowerCase = Object.fromEntries(
@@ -22,7 +23,8 @@ class AcmeAdapter{
             lat: Latitude,
             lng: Longitude,
             city: City,
-            country: Country
+            country: Country,
+            address: Address
           }
         }
       })
