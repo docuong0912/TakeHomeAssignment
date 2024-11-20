@@ -9,7 +9,6 @@ const MergeHotel = require("./strategies/MergeHotel");
   const suppliers = await Promise.all([factory.createSupplier("acme"), factory.createSupplier("paperflies"), factory.createSupplier("patagonia")])
   const service = new HotelService(suppliers);
   service.setMergingStrategy(new MergeHotel())
-  const filteredHotel = service.filterHotels(hotelIds, destinationIds)
-  const mergedHotel = service.mergeHotels(filteredHotel)
-console.log(JSON.stringify(Object.values(mergedHotel), null, 2))
+  const hotel = service.getHotels(hotelIds, destinationIds)
+console.log(JSON.stringify(Object.values(hotel), null, 2))
 })();

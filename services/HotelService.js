@@ -1,5 +1,5 @@
 class HotelService{
-  constructor(suppliers, strategy){
+  constructor(suppliers){
     this.suppliers = suppliers
   }
   setMergingStrategy(mergeStrategy){
@@ -13,6 +13,10 @@ class HotelService{
   mergeHotels (data) {
     const flatData = data.flat()
     return this.mergeStrategy.merge(flatData)
+  }
+  getHotels(hotelStr, destinationStr){
+    const data = this.filterHotels(hotelStr, destinationStr)
+    return this.mergeHotels(data)
   }
 }
 module.exports = HotelService
